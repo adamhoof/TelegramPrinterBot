@@ -34,7 +34,7 @@ func (telegramBot *TelegramBot) CreateBot() {
 		Poller: &tb.LongPoller{
 			Timeout: 10 * time.Second,
 		},
-		Verbose: true,
+		Verbose: false,
 	})
 	if err != nil {
 		panic(err)
@@ -55,6 +55,13 @@ func (telegramBot *TelegramBot) setDocInputHandler(fileDownloader *FileDownloade
 		fileURL := telegramServer + telegramBot.bot.Token + "/" + file.FilePath
 
 		fileName := c.Message().Document.FileName
+		if !strings.Contains(fileName, ".pdf") {
+			_, err = telegramBot.bot.Send(&homies, "FILE EXTENSION NOT SUPPORTED YET, contact developer if you want to add this feature.")
+			if err != nil {
+				return err
+			}
+			return nil
+		}
 		err = fileDownloader.download(fileURL, fileName)
 		commandExecutor.print(fileName)
 		if err != nil {
