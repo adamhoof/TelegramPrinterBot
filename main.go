@@ -4,7 +4,7 @@ func main() {
 
 	telegramBot := TelegramBot{}
 	fileDownloader := FileDownloader{}
-	commandExecutor := CLICommandExecutor{}
+	commandExecutor := CLIPrinter{}
 
 	fileDownloader.setup()
 	commandExecutor.setup()

@@ -43,7 +43,7 @@ func (telegramBot *TelegramBot) CreateBot() {
 	fmt.Println("bot created")
 }
 
-func (telegramBot *TelegramBot) setDocInputHandler(fileDownloader *FileDownloader, commandExecutor *CLICommandExecutor) {
+func (telegramBot *TelegramBot) setDocInputHandler(fileDownloader *FileDownloader, commandExecutor *CLIPrinter) {
 
 	telegramBot.bot.Handle(tb.OnDocument, func(c tb.Context) error {
 
