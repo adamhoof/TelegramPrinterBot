@@ -4,14 +4,14 @@ func main() {
 
 	telegramBot := TelegramBot{}
 	fileDownloader := FileDownloader{}
-	commandExecutor := CLIPrinter{}
+	cliPrinter := CLIPrinter{}
 
 	fileDownloader.setup()
-	commandExecutor.setup()
+	cliPrinter.setup()
 
 	telegramBot.CreateBot()
 
-	telegramBot.setDocInputHandler(&fileDownloader, &commandExecutor)
+	telegramBot.setDocInputHandler(&fileDownloader, &cliPrinter)
 
 	telegramBot.StartBot()
 }
