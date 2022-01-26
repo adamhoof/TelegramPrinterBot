@@ -9,7 +9,7 @@ type CLIPrinter struct {
 }
 
 func (cliPrinter *CLIPrinter) setup() {
-	cmd := exec.Command("lpoptions, -d Printur")
+	cmd := exec.Command("lpoptions", "-d", "Printur")
 
 	err := cmd.Run()
 
